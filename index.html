@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشغل فيديو مع يوتيوب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 0 10px;
+            background-color: #2f2f3b;
+        }
+        .container {
+            background-color: rgba(47, 47, 59, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .description {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #ffffff;
+        }
+        .fullscreen-btn {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .controls {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .play-btn {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin: 5px;
+        }
+        .seek-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .volume-slider {
+            width: 100px;
+            margin: 10px 0;
+        }
+        .side-videos {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        iframe {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>مسلسل حكاية ليلة الحلقة 10
+</h1>
+    <video id="videoPlayer" poster="cover.jpg" autoplay>
+        <source id="videoSource" src="https://firebasestorage.googleapis.com/v0/b/m18s-fb8f2.appspot.com/o/Bir_Gece_Masali_S01E10.mp4?alt=media&token=4028e8cf-a2bf-40b8-b1fa-65f6cccbba72" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+    </video>
+
+    <div class="controls">
+        <button class="play-btn" id="playPauseBtn">تشغيل</button>
+        <div style="display: flex; align-items: center;">
+            <button class="fullscreen-btn" id="fullscreenBtn"><i class="fas fa-expand"></i></button>
+            <input type="range" class="seek-slider" id="seekSlider" value="0" min="0" step="1" style="flex-grow: 1; margin-left: 10px;">
+        </div>
+        <input type="range" class="volume-slider" id="volume" min="0" max="1" step="0.1" value="0.5">
+    </div>
+
+    <div class="description">
+        تفاصيل إضافية
+الحبكة
+تبدأ الأحداث بمعاناة الشخصية الرئيسية، التي تواجه تحديات في حياتها الشخصية والمهنية. تتشابك قصص الشخصيات الأخرى، مما يؤدي إلى تصاعد التوتر الدرامي. يتناول المسلسل التحولات المفاجئة في العلاقات وكيف يمكن للقرارات اللحظية أن تغير مجرى الحياة.
+
+الشخصيات الثانوية
+الشخصية الداعمة: صديق مقرب يقدم الدعم والنصائح، ويكون له دور محوري في تطور الأحداث.
+الشخصية antagonistic: قد تكون شخصية تمثل عقبة أمام الحب، مما يضيف تعقيدًا إلى الحبكة.
+عناصر السرد
+المسلسل يستخدم تقنيات السرد المتنوعة، مثل الفلاش باك، لاستكشاف ماضي الشخصيات وتأثيره على الحاضر. يتميز أيضًا بحوارات قوية تعكس الصراعات الداخلية والخارجية.
+
+النجاحات
+حقق المسلسل شهرة واسعة، سواء على مستوى المشاهدة أو النقد، بفضل الأداء المتميز للممثلين والكتابة العميقة. كما أثار نقاشات حول موضوعات الحب والتضحية في المجتمع.
+
+التقييمات
+تلقى المسلسل تقييمات إيجابية من النقاد والجمهور على حد سواء، خاصة فيما يتعلق بتطور الشخصيات والقصص المترابطة.
+
+إذا كان لديك المزيد من الأسئلة أو ترغب في معرفة تفاصيل محددة مثل أسماء الممثلين أو تقييمات الحلقات، فلا تتردد في السؤال!
+
+.
+    </div>
+
+    <div class="side-videos" id="sideVideos">
+        <iframe id="youtubeVideo1" src="https://www.youtube.com/embed/cPmlSbU-HsE?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo2" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo3" src="https://www.youtube.com/embed/3JZ_D3ELwOQ?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo4" src="https://www.youtube.com/embed/tgbNymZ7vqY?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo5" src="https://www.youtube.com/embed/cPmlSbU-HsE?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo6" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo7" src="https://www.youtube.com/embed/3JZ_D3ELwOQ?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo8" src="https://www.youtube.com/embed/tgbNymZ7vqY?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo9" src="https://www.youtube.com/embed/cPmlSbU-HsE?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+        <iframe id="youtubeVideo10" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1" title="YouTube video player"></iframe>
+    </div>
+</div>
+
+<script>
+    const videoPlayer = document.getElementById('videoPlayer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const seekSlider = document.getElementById('seekSlider');
+    const volumeControl = document.getElementById('volume');
+    const controls = document.querySelector('.controls');
+
+    let youtubePlayers = [];
+
+    function onYouTubeIframeAPIReady() {
+        for (let i = 1; i <= 10; i++) {
+            const player = new YT.Player(`youtubeVideo${i}`, {
+                events: {
+                    'onReady': (event) => {
+                        youtubePlayers.push(event.target);
+                        event.target.playVideo(); // تشغيل الفيديو تلقائياً
+                    },
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+    }
+
+    function syncAllPlayers(shouldPlay) {
+        if (shouldPlay) {
+            videoPlayer.play();
+            youtubePlayers.forEach(player => player.playVideo());
+        } else {
+            videoPlayer.pause();
+            youtubePlayers.forEach(player => player.pauseVideo());
+        }
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+            syncAllPlayers(false);
+        }
+    }
+
+    playPauseBtn.addEventListener('click', function() {
+        const isPaused = videoPlayer.paused;
+        syncAllPlayers(isPaused);
+        playPauseBtn.textContent = isPaused ? 'إيقاف' : 'تشغيل';
+    });
+
+    fullscreenBtn.addEventListener('click', function() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            if (videoPlayer.requestFullscreen) {
+                videoPlayer.requestFullscreen();
+            } else if (videoPlayer.mozRequestFullScreen) {
+                videoPlayer.mozRequestFullScreen();
+            } else if (videoPlayer.webkitRequestFullscreen) {
+                videoPlayer.webkitRequestFullscreen();
+            } else if (videoPlayer.msRequestFullscreen) {
+                videoPlayer.msRequestFullscreen();
+            }
+        }
+    });
+
+    // إخفاء أزرار التحكم عند الدخول إلى وضع ملء الشاشة
+    document.addEventListener('fullscreenchange', function() {
+        if (document.fullscreenElement) {
+            controls.style.display = 'none'; // إخفاء جميع أزرار التحكم
+        } else {
+            controls.style.display = 'flex'; // إظهار الأزرار عند الخروج من ملء الشاشة
+        }
+    });
+
+    videoPlayer.addEventListener('timeupdate', function() {
+        seekSlider.max = videoPlayer.duration;
+        seekSlider.value = videoPlayer.currentTime;
+    });
+
+    seekSlider.addEventListener('input', function() {
+        videoPlayer.currentTime = this.value;
+    });
+
+    volumeControl.addEventListener('input', function() {
+        videoPlayer.volume = this.value;
+    });
+
+    // تحميل واجهة برمجة التطبيقات ليوتيوب
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+</script>
+</body>
+</html>
